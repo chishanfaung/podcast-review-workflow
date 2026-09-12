@@ -1,0 +1,22 @@
+# Private source media and project-specific editing work
+*.mov
+*.mp4
+*.m4v
+*.webm
+*.wav
+*.mp3
+*.wemt*
+edit/
+video-editor/
+double_click_to_convert_01.*
+
+# Local project state and generated artifacts
+.DS_Store
+.workbuddy/
+__pycache__/
+*.py[cod]
+*.log
+dist/*.zip
+
+# Keep the checked-in public package artifact if explicitly added.
+!dist/podcast-review-workflow.zip

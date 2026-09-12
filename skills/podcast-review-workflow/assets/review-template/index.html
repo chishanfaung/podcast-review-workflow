@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{TITLE}}</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="formats.css"></head>
+<body>
+<header><div><small>LOCAL PODCAST STUDIO / 审片模式</small><h1>{{TITLE}}</h1></div><div class="header-actions"><span id="saved">正在加载…</span><button id="import">加载审片设置</button><button id="export" class="primary">导出审片设置</button><input type="file" id="importFile" accept="application/json,.json" hidden></div></header>
+<div class="notice">直接播放原视频 · 不删片段、不重排、不压制 · 字幕和切镜仅在此页面预览</div>
+<main><section class="manuscript">
+<nav id="tabs"><button data-tab="text" class="active">播客文稿</button><button data-tab="quotes">金句 <b id="quoteCount"></b></button><button data-tab="shots">镜头 <b id="shotCount"></b></button><button data-tab="checks">待校对 <b id="checkCount"></b></button></nav>
+<div class="tools"><input id="search" placeholder="搜索文稿…" aria-label="搜索文稿"><label><input id="follow" type="checkbox" checked> 跟随播放</label><button id="editCue">校正 / 重点词</button></div>
+<div class="pane" id="textPane"><div class="loading">正在读取本地转写文稿…</div></div><div class="pane" id="quotesPane" hidden></div><div class="pane" id="shotsPane" hidden></div><div class="pane" id="checksPane" hidden></div>
+<footer>点击文字定位；双击短句改字。字符高亮只用于核对，不能用于字符级裁剪。</footer>
+</section><section class="preview">
+<div class="preview-head"><div id="modes"><button data-mode="auto" class="active">自动导播</button><button data-mode="split">双人</button><button data-mode="left">左侧</button><button data-mode="right">右侧</button></div><div id="formats"><button data-format="horizontal" class="active">横版 16:9</button><button data-format="vertical">竖版 9:16</button></div><span id="shotLabel">双人</span></div>
+<div class="stage" id="stage" data-view="split" data-format="horizontal"><video id="video" preload="metadata" playsinline></video><div id="subtitle"></div></div>
+<div class="transport"><button id="play" class="primary" aria-label="播放">▶</button><span id="time">00:00 / 00:00</span><input id="seek" type="range" min="0" max="1" step="0.01" value="0" aria-label="播放进度"><select id="speed" aria-label="播放速度"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select><button id="fullscreen">全屏</button></div>
+<div class="settings"><label><input type="checkbox" id="showSubtitles" checked> 显示字幕</label><label><input type="checkbox" id="showQuotes" checked> 金句高亮</label><label>字号 <input id="fontSize" type="range" min="2" max="4.5" step="0.1" value="2.8"></label></div>
+<article class="review-card"><small>当前播放句</small><p id="currentText">点击左侧段落的播放按钮开始审片</p><div class="row"><button id="back">回听 3 秒</button><button id="prevShot">上一切镜</button><button id="nextShot">下一切镜</button></div></article>
+<article class="review-card"><small>在当前时间添加 / 替换切镜</small><div class="row"><select id="newShot"><option value="split">双人</option><option value="left">左侧单人</option><option value="right">右侧单人</option></select><button id="addShot">设定此处镜头</button><button id="undo">撤销上一步</button></div><p class="muted">可靠信号判断说话侧；停顿和不确定位置保留双人画面。自动方案是可调整的初稿。</p></article><div class="status" id="status" role="status"></div>
+</section></main>
+<dialog id="editor"><form id="editForm"><h2>校正文本与重点词</h2><p class="muted" id="editTiming"></p><textarea id="editText" rows="5" maxlength="2000" required></textarea><label class="field">重点词（用逗号或换行分隔）<textarea id="editKeywords" rows="2" maxlength="500" placeholder="例如：连续光谱，包容所有人"></textarea></label><p class="muted">重点词只改变预览样式；字符高亮只用于跟读核对。不会删改音视频。</p><div class="row"><button type="button" id="cancelEdit">取消</button><button class="primary" type="submit">保存</button></div></form></dialog>
+<script src="review-config.js"></script><script src="app.js"></script></body></html>

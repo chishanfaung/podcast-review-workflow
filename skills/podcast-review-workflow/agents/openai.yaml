@@ -1,0 +1,7 @@
+interface:
+  display_name: "播客智能审片"
+  short_description: "本地播客视频审片、横竖版预览与可选压制"
+  brand_color: "#F46B45"
+  default_prompt: "Use $podcast-review-workflow to build a non-destructive local podcast review page for my edited video."
+policy:
+  allow_implicit_invocation: true

@@ -8,11 +8,7 @@
 
 以下截图来自真实工作流，但已用大面积抽象人物覆盖做公开发布脱敏；字幕、横竖版构图和双人/单人布局仍保留，用于展示能力而非展示人物。
 
-![原始左右双人布局（脱敏）](examples/screenshots/source-split-redacted.jpg)
-
-![竖版双人上下堆叠与字幕（脱敏）](examples/screenshots/vertical-split-redacted.jpg)
-
-![竖版单人画面与长字幕（脱敏）](examples/screenshots/vertical-single-redacted.jpg)
+![审片工作台（人物已用大面积抽象几何人物覆盖）](workbench-redacted.png)
 
 ## Skill 内容
 
@@ -62,12 +58,6 @@ python3 skills/podcast-review-workflow/scripts/package_skill.py \
   skills/podcast-review-workflow \
   --output dist/podcast-review-workflow.zip
 ```
-
-## 不包含什么
-
-本仓库不包含本次项目的原视频、转写/分析中间文件、渲染视频、用户审片设置、临时服务页面或与特定片子绑定的范围选择网页。它们已在 `.gitignore` 中排除。
-
-最新版项目代码中的通用全文审片模板已提炼到 `assets/review-template/`；本期 `vertical-studio-20260910` 这类“固定素材 + 个性化候选片段 + 片尾文案”的临时网页没有塞进 skill，只保留其可迁移的原则：源时间范围校验、独立输出目录、样片失效保护和音画/字幕验证。
 
 ## 关键边界
 
